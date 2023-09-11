@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: black;
 }
 
 .App-logo {
@@ -28,6 +29,137 @@
   color: #61dafb;
 }
 
+/*Navbar CSS*/
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.search-button {
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+.small-search-bar {
+  width: 350px; /* Adjust the width as needed */
+}
+
+/* Trending */
+
+.scrollview-container{
+  background-color: rgb(28, 28, 28);
+  padding-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch; 
+  scroll-behavior: smooth; 
+  padding: 10px; 
+  padding-top: 15px;
+}
+
+.movie-card {
+  flex: 0 0 auto;
+  margin-right: 10px; 
+}
+
+.movie-card:hover{
+  cursor: pointer;
+  width: 11rem;
+  height: 26rem;
+}
+
+/* the add button inside TrendingMovies component*/
+/* Add this CSS to your component's stylesheet or a separate CSS file */
+.bottom-rating {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-bottom: 30px; /* Adjust as needed */
+}
+
+/* Circular Progress Bar*/
+.small-progress-bar {
+  width: 50px; 
+  height: 50px; 
+}
+
+.small-progress-bar .CircularProgressbar-text {
+  font-size: 12px; /* Adjust the font size as needed */
+  line-height: 50px; /* Set line-height to the progress bar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollview-title {
+  text-align: left; 
+  margin-left: 10px; 
+}
+
+.card-hover {
+  transition: transform 0.2s; 
+  margin-right: 20px;
+}
+
+.card-hover:hover {
+  transform: scale(0.90); 
+  cursor: pointer;
+}
+
+.custom-nav-link {
+  font-size: 14px;
+}
+
+.welcome-title {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  z-index: 2; 
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); 
+  padding: 20px;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.image-carousel {
+  position: relative;
+  z-index: 1; /* Ensure the carousel is behind the title */
+
+}
+
+.movie-descrition-img{
+  border-radius: 15px;
+}
+
+/* Watchlist CSS*/
+.vertical-scroll-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; 
+  scroll-behavior: smooth; 
+  padding: 10px; 
+  padding-top: 15px;
+}
+
+.watchlist-dialog {
+  max-width: 650px; /* Set your desired maximum width */
+  width: 100%; /* Ensure the modal takes up the full width of its container */
+  margin: 0 auto; /* Center the modal horizontally */
+}
+
+.blur { filter: blur(3px); }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +168,4 @@
     transform: rotate(360deg);
   }
 }
+

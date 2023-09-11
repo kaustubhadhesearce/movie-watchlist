@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MyNavbar from './components/Navbar'
+import Home from './components/Home';
+import Footer from './components/Footer';
+import { Carousel } from 'react-bootstrap';
+import Caraousel from './components/Caraousel';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [watchlist, setWatchlist] = useState([]);
+
+  // Initialize watchlist from localStorage on component mount
+  useEffect(() => {
+    const updatedWatchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+    setWatchlist(updatedWatchlist);
+  }, []);
+
+  const handleAddToWatchlist = (movie) => {
+    const updatedWatchlist = [...watchlist, movie];
+    localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
+    setWatchlist(updatedWatchlist);
+  };
+
+  const handleDeleteFromWatchlist = (movie) => {
+    const updatedWatchlist = watchlist.filter((item) => item.id !== movie.id);
+    localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
+    setWatchlist(updatedWatchlist);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MyNavbar/>
+      <Caraousel/>
+      <Home/>
+      <Footer/>
     </div>
   );
 }
